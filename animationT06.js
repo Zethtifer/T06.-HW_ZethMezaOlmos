@@ -80,12 +80,12 @@ for (let i = 0; i < 6; i++) {
 
 
 
-// Variables para la imagen
+// 2. Variables para la imagen
 let imageX = 100;
 let imageY = 100;
 let flipImage = false;
 
-// Función para dibujar la imagen con la estructura original
+// 3. Función para dibujar la imagen con la estructura original
 function drawImage() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
     ctx.save(); // Guarda el estado actual
@@ -95,14 +95,14 @@ function drawImage() {
         ctx.translate(-canvas.width, 0); // Corrige la posición tras la inversión
     }
 
-    // Fondo de la imagen
+    // 3.1 Fondo de la imagen
     ctx.fillStyle = '#161616';
     ctx.fillRect(imageX, imageY, 500, 500);
 
-    // Línea dentro de la imagen
+    // 3.2 Línea dentro de la imagen
     dibujarLineaSola(imageX + 30, imageY);
 
-    // Cuadriláteros dentro de la imagen (igual al código original)
+    // 3.3 Cuadriláteros dentro de la imagen (igual al código original)
     let inicioX = imageX + 50;
     let ancho = 25;
     let alto = 400;
@@ -120,7 +120,8 @@ function drawImage() {
     ctx.restore(); // Restaura el estado
 }
 
-// Función para dibujar la línea dentro de la imagen
+// 4. Línea
+// 4.1 Definir la función para hacer la línea
 function dibujarLineaSola(x, y) {
     ctx.beginPath();
     ctx.strokeStyle = '#ECECEC';
@@ -130,7 +131,7 @@ function dibujarLineaSola(x, y) {
     ctx.stroke();
 }
 
-// Función para dibujar los cuadriláteros inclinados dentro de la imagen
+// 5. Función para dibujar los cuadriláteros inclinados dentro de la imagen
 function dibujarCuadrilatero(x, y, width, height, inclinacion) {
     ctx.beginPath ();
     ctx.strokeStyle = '#161616';
