@@ -120,7 +120,7 @@ function drawImage() {
     ctx.restore(); // Restaura el estado
 }
 
-// 4. Línea
+// 4.Línea
 // 4.1 Definir la función para hacer la línea
 function dibujarLineaSola(x, y) {
     ctx.beginPath();
@@ -149,7 +149,7 @@ function dibujarCuadrilatero(x, y, width, height, inclinacion) {
 }
 
 
-// Evento para cambiar el fondo con la tecla ESPACIO
+// 6. Evento para cambiar el fondo con la tecla ESPACIO
 document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
         let randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
@@ -157,7 +157,7 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-// Evento para mover la imagen con el mouse (ahora funciona bien incluso volteada)
+// 7. Evento para mover la imagen con el mouse (ahora funciona bien incluso volteada)
 canvas.addEventListener("mousemove", (event) => {
     let offsetX = flipImage ? 250 : -250; // Corrige el movimiento invertido
     imageX = event.clientX + offsetX;
@@ -165,7 +165,7 @@ canvas.addEventListener("mousemove", (event) => {
     drawImage();
 });
 
-// Evento para invertir la imagen con ENTER
+// 8. Evento para invertir la imagen con ENTER
 document.addEventListener("keydown", (event) => {
     if (event.code === "Enter") {
         flipImage = !flipImage;
@@ -173,5 +173,5 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-// Dibuja la imagen inicial
+// 9. Dibuja la imagen inicial
 drawImage();
