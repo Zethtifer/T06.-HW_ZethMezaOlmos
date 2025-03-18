@@ -79,20 +79,21 @@ for (let i = 0; i < 6; i++) {
 }*/
 
 
+// 1.5 y ahora a que sea de la imagen pero animada 
 
 // 2. Variables para la imagen
 let imageX = 100;
 let imageY = 100;
 let flipImage = false;
 
-// 3. Función para dibujar la imagen con la estructura original
+// 3. Función para dibujar la imagen
 function drawImage() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
     ctx.save(); // Guarda el estado actual
 
     if (flipImage) {
-        ctx.scale(-1, 1); // Invierte la imagen
-        ctx.translate(-canvas.width, 0); // Corrige la posición tras la inversión
+        ctx.scale(-1, 1); // Para invertir la imagen
+        ctx.translate(-canvas.width, 0); 
     }
 
     // 3.1 Fondo de la imagen
@@ -102,7 +103,7 @@ function drawImage() {
     // 3.2 Línea dentro de la imagen
     dibujarLineaSola(imageX + 30, imageY);
 
-    // 3.3 Cuadriláteros dentro de la imagen (igual al código original)
+    // 3.3 Cuadriláteros dentro de la imagen 
     let inicioX = imageX + 50;
     let ancho = 25;
     let alto = 400;
@@ -111,13 +112,13 @@ function drawImage() {
 
     for (let i = 0; i < 6; i++) {
         dibujarCuadrilatero(inicioX, imageY + 65, ancho, alto, inclinacion);
-        inicioX += ancho + espacio; // Avanza la siguiente figura
+        inicioX += ancho + espacio; 
         
         ancho += 15;
         espacio -= 2.5;
     }
 
-    ctx.restore(); // Restaura el estado
+    ctx.restore(); 
 }
 
 // 4.Línea
@@ -157,9 +158,9 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-// 7. Evento para mover la imagen con el mouse (ahora funciona bien incluso volteada)
+// 7. Para mover la imagen con el mouse 
 canvas.addEventListener("mousemove", (event) => {
-    let offsetX = flipImage ? 250 : -250; // Corrige el movimiento invertido
+    let offsetX = flipImage ? 250 : -250; 
     imageX = event.clientX + offsetX;
     imageY = event.clientY - 250;
     drawImage();
@@ -173,5 +174,5 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-// 9. Dibuja la imagen inicial
+// 9. Para dibujar la imagen inicial
 drawImage();
